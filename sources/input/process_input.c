@@ -35,16 +35,18 @@ void	fill_stacks(t_stacks *stacks, char **input, size_t len)
 	stacks = ft_stacks_new(len);
 	i = -1;
 	while (++i < len)
-		stacks->stack_a[i] = check_input(input[i]);
+		stacks->stack_a[i] = check_input(input[i], stacks->stack_a, i);
 }
 
 /*
-Checks the input of each argument. Throws an error if the input is not
-a number, or it is not an integer. If the input is valid, returns the int
-equivalent of str.
+Checks the input, str, for three things :-
+	1. Are all the characters in str a digit?
+	2. Is the number represented by str outside the int range?
+	3. Is the number represented by str a duplicate?
+If the answer is yes, an error is thrown and the program ends.
 */
 
-int	check_input(char *str)
+int	check_input(char *str, int *stack, size_t current)
 {
 	int		temp_int;
 	char	*temp_str;
@@ -63,5 +65,11 @@ int	check_input(char *str)
 	if (ft_strncmp(str, temp_str, str_len) != 0)
 		return (-1); // ft_put_error();
 	free(temp_str);
+	i = -1;
+	while (++i < current)
+	{
+		if (temp_int == stack[i])
+			return (-1); // ft_put_error();
+	}
 	return (temp_int);
 }
