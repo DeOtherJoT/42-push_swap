@@ -17,3 +17,13 @@ void	ft_stacks_del(t_stacks *stacks)
 	free(stacks->stack_b);
 	free(stacks);
 }
+
+int	ft_elem_get(int	*stack, int elem)
+{
+	return(stack[elem]);
+}
+
+void	ft_elem_set(int *stack, int elem, int val)
+{
+	stack[elem] = val;
+}
