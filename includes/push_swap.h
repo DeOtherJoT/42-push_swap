@@ -13,10 +13,15 @@ typedef struct s_stacks
 
 /* -.- Driver Folder -.- */
 
+// Main
+void	exit_prog(t_stacks *stacks);
+
+/* -.- Input Folder -.- */
+
 // Decide Input
 void		process_input(t_stacks *stacks, int argc, char **argv);
 void		fill_stacks(t_stacks *stacks, char **input, size_t len);
-int			check_input(char *str);
+int			check_input(char *str, int *stack, size_t current);
 
 // Input Utils
 void		ft_put_error(void);
@@ -29,6 +34,13 @@ t_stacks	*ft_stacks_new(size_t len);
 void		ft_stacks_del(t_stacks *stacks);
 int			ft_elem_get(int	*stack, int elem);
 void		ft_elem_set(int *stack, int elem, int val);
+
+/* -.- Algo Folder -.- */
+
+// Decide Sort
+void		sort_stacks(t_stacks *stacks);
+void		first_check(t_stacks *stacks, int *stack, size_t len);
+
 
 /* -.- Sort Folder -.- */
 
