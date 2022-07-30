@@ -7,7 +7,7 @@ No checks are done here, only done in fill_stacks().
 
 void	process_input(t_stacks *stacks, int argc, char **argv)
 {
-	char	*temp_split;
+	char	**temp_split;
 
 	if (argc < 2)
 		exit(EXIT_SUCCESS);
@@ -61,7 +61,7 @@ int	check_input(char *str, int *stack, size_t current)
 			return (-1); // ft_put_error();
 	}
 	temp_int = ft_atoi(str);
-	temp_str = ft_itoa(str);
+	temp_str = ft_itoa(temp_int);
 	if (ft_strncmp(str, temp_str, str_len) != 0)
 		return (-1); // ft_put_error();
 	free(temp_str);
