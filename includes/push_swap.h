@@ -1,6 +1,11 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# define UNSORTED -1
+# define NO_ACT 0
+# define SORTED_ASC 1
+# define SORTED_DES 2
+
 # include "../libft/libft.h"
 
 typedef struct s_stacks
@@ -41,8 +46,12 @@ void		ft_elem_set(int *stack, int elem, int val);
 void		sort_stacks(t_stacks *stacks);
 void		first_check(t_stacks *stacks, int *stack, size_t len);
 
+// Sort Three (Elements)
 
-/* -.- Sort Folder -.- */
+// Sort Utils
+int			ft_get_state(int *stack, size_t len);
+
+/* -.- Operation Folder -.- */
 
 // Operation 1
 void		op_sa(t_stacks *stacks);
@@ -64,5 +73,6 @@ void		op_rrr(t_stacks *stacks);
 // Operation Utils
 void		ft_shift_down(int *stack, size_t len);
 void		ft_shift_up(int *stack, size_t len);
+void		ft_exec_op(t_stacks *stacks, char *op, void (*f)(t_stacks *));
 
 #endif
