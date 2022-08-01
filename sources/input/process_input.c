@@ -2,7 +2,7 @@
 
 /*
 Decides the input type based on argc and adjusts the input accordingly.
-No checks are done here, only done in fill_stacks().
+No checks are done here, only done in fill_stacks() by check_input().
 */
 
 void	process_input(t_stacks *stacks, int argc, char **argv)
