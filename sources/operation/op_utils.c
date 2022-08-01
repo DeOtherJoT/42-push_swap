@@ -19,3 +19,9 @@ void	ft_shift_up(int *stack, size_t len)
 		ft_elem_set(stack, x, ft_elem_get(stack, x + 1));
 	ft_elem_set(stack, x, 0);
 }
+
+void	ft_exec_op(t_stacks *stacks, char *op, void (*f)(t_stacks *))
+{
+	f(stacks);
+	ft_putstr_fd(op, 1);
+}
