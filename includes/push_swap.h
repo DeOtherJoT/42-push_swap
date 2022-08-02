@@ -23,10 +23,11 @@ void	exit_prog(t_stacks *stacks);
 
 /* -.- Input Folder -.- */
 
-// Decide Input
+// Process Input
 void		process_input(t_stacks *stacks, int argc, char **argv);
 void		fill_stacks(t_stacks *stacks, char **input, size_t len);
 int			check_input(char *str, int *stack, size_t current);
+void		index_stack(int *stack, int *sorted_arr, size_t len);
 
 // Input Utils
 void		ft_put_error(void);
@@ -46,7 +47,9 @@ void		ft_elem_set(int *stack, int elem, int val);
 void		sort_stacks(t_stacks *stacks);
 void		first_check(t_stacks *stacks, int *stack, size_t len);
 
-// Sort Three (Elements)
+// Sort Simple
+void		ft_sort_three(t_stacks *stacks, int *stack, size_t len);
+void		ft_sort_simple(t_stacks *stacks);
 
 // Sort Utils
 int			ft_get_state(int *stack, size_t len);
