@@ -7,14 +7,14 @@ int	ft_get_state(int *stack, size_t len)
 	x = -1;
 	if (len < 2)
 		return (NO_ACT);
-	if (stack[0] < stack[1])
+	if (stack[0] > stack[1])
 	{
 		while (++x < (len - 1))
 		{
 			if (stack[x] < stack[x + 1])
 				return (UNSORTED);
 		}
-		return (SORTED_ASC);
+		return (SORTED_DES);
 	}
 	else
 	{
@@ -23,6 +23,6 @@ int	ft_get_state(int *stack, size_t len)
 			if (stack[x] > stack[x + 1])
 				return (UNSORTED);
 		}
-		return (SORTED_DES);
+		return (SORTED_ASC);
 	}
 }

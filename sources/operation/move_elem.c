@@ -33,7 +33,7 @@ void	move_elem_a(t_stacks *stacks, int elem)
 	}
 	else
 	{
-		x = (stacks->len_a - 1) - x;
+		x = stacks->len_a - x;
 		while (x > 0)
 		{
 			ft_exec_op(stacks, "rra", op_rra);
