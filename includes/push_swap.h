@@ -89,4 +89,8 @@ void		ft_shift_down(int *stack, size_t len);
 void		ft_shift_up(int *stack, size_t len);
 void		ft_exec_op(t_stacks *stacks, char *op, void (*f)(t_stacks *));
 
+// Move Elements
+void		move_elem_a(t_stacks *stacks, int elem);
+size_t		ft_elem_index(int *src, int elem);
+
 #endif
