@@ -22,8 +22,15 @@ void	ft_sort_three(t_stacks *stacks, int *stack, size_t len)
 
 void	ft_sort_simple(t_stacks *stacks)
 {
+	size_t	ctr;
+
+	ctr = 1;
 	while (stacks->len_a > 3)
-		ft_exec_op(stacks, "pb", op_pb);
+	{
+		move_elem_a(stacks, ctr);
+		ctr++;
+	}
 	ft_sort_three(stacks, stacks->stack_a, stacks->stack_b);
-	
+	while (stacks->len_b > 0)
+		ft_exec_op(stacks, "pa", op_pa);
 }
