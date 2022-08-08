@@ -39,7 +39,7 @@ void	fill_stacks(t_stacks *stacks, char **input, size_t len)
 		stacks->stack_a[i] = check_input(input[i], stacks->stack_a, i);
 	temp_stack = malloc(len * sizeof(int));
 	ft_memcpy(temp_stack, stacks->stack_a, len * sizeof(int));
-	radix_sort(temp_stack, len);
+	temp_sort(temp_stack, 0, len - 1);
 	index_stack(stacks->stack_a, temp_stack, len);
 	free(temp_stack);
 }
