@@ -23,7 +23,7 @@ void	first_check(t_stacks *stacks, int *stack, size_t len)
 /*
 Start the stack sorting algorithm.
 There are four paths :-
-	A) < 3 elements or the stack is already sorted.
+	A) 2 elements or the stack is already sorted.
 		- This is handled by first_check()
 	B) 3 elements.
 	C) < 5 elements.
@@ -34,9 +34,7 @@ This function decides which sorting algorithm to do based on len_a.
 void	sort_stacks(t_stacks *stacks)
 {
 	first_check(stacks, stacks->stack_a, stacks->len_a);
-	if (stacks->len_a == 3)
-		ft_sort_three(stacks, stacks->stack_a, stacks->len_a);
-	else if (stacks->len_a < 5)
+	if (stacks->len_a < 5)
 		ft_sort_simple(stacks);
 	else
 		ft_sort_complex(stacks);
