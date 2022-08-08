@@ -9,8 +9,7 @@ void	exit_prog(t_stacks *stacks)
 int	main(int argc, char *argv)
 {
 	t_stacks	*stacks;
-
-	process_input(stacks, argc, argv);
+	stacks = process_input(argc, argv);
 	sort_stacks(stacks);
 	exit_prog(stacks);
 }
