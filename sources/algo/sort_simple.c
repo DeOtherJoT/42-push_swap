@@ -30,7 +30,7 @@ void	ft_sort_simple(t_stacks *stacks)
 		move_elem_a(stacks, ctr);
 		ctr++;
 	}
-	ft_sort_three(stacks, stacks->stack_a, stacks->stack_b);
+	ft_sort_three(stacks, stacks->stack_a, stacks->len_a);
 	while (stacks->len_b > 0)
 		ft_exec_op(stacks, "pa", op_pa);
 }

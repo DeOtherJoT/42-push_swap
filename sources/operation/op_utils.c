@@ -24,4 +24,5 @@ void	ft_exec_op(t_stacks *stacks, char *op, void (*f)(t_stacks *))
 {
 	f(stacks);
 	ft_putstr_fd(op, 1);
+	ft_putchar_fd('\n', 1);
 }

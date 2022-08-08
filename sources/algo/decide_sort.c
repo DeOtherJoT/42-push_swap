@@ -34,9 +34,9 @@ This function decides which sorting algorithm to do based on len_a.
 void	sort_stacks(t_stacks *stacks)
 {
 	first_check(stacks, stacks->stack_a, stacks->len_a);
-	if (stacks->len_a < 5)
+	if (stacks->len_a <= 5)
 		ft_sort_simple(stacks);
 	else
-		ft_sort_complex(stacks);
-	exit_prog(stacks);
+		printf("Not yet lol\n"); //ft_sort_complex(stacks);
+	//exit_prog(stacks);
 }
