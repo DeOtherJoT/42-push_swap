@@ -3,9 +3,10 @@
 void	ft_print_stacks(t_stacks *stacks)
 {
 	size_t	counter = 0;
+	size_t	compare = stacks->len_a > stacks->len_b ? stacks->len_a : stacks->len_b;
 
 	printf("A\t\t\tB\n");
-	while (counter < stacks->len_a)
+	while (counter < compare)
 	{
 		printf("%d\t\t\t%d\n", stacks->stack_a[counter], stacks->stack_b[counter]);
 		counter++;
