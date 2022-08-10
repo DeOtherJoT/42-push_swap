@@ -65,6 +65,14 @@ void		ft_sort_simple(t_stacks *stacks);
 // Sort Utils
 int			ft_get_state(int *stack, size_t len);
 
+/* Sort Complex */
+
+void		ft_sort_complex(t_stacks *stacks);
+
+// Decide Partition
+size_t		part_count(size_t len);
+int			*decide_partitions(size_t len, size_t *partition_count);
+
 /* -.- Operation Folder -.- */
 
 // Operation 1
