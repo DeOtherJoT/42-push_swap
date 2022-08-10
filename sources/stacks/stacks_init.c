@@ -4,8 +4,6 @@ t_stacks	*ft_stacks_new(size_t len)
 {
 	t_stacks	*ret;
 
-	if (len < 2)
-		exit(EXIT_SUCCESS);
 	ret = malloc(sizeof(t_stacks));
 	ret->stack_a = ft_calloc(len, sizeof(int));
 	ret->stack_b = ft_calloc(len, sizeof(int));
