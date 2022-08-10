@@ -25,9 +25,10 @@ Start the stack sorting algorithm.
 There are four paths :-
 	A) 2 elements or the stack is already sorted.
 		- This is handled by first_check()
-	B) 3 elements.
-	C) < 5 elements.
-	D) Everything else.
+	B) 3 - 5 elements.
+		- This is handled by ft_sort_simple()
+	C) Everything else.
+		- gg.com
 This function decides which sorting algorithm to do based on len_a. 
 */
 

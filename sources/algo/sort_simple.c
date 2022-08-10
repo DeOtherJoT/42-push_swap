@@ -1,5 +1,10 @@
 #include "../../includes/push_swap.h"
 
+/*
+Hardcoded solutions for the five different scenarios that a stack with
+three elements could be sorted.
+*/
+
 void	ft_sort_three(t_stacks *stacks, int *stack, size_t len)
 {
 	if (ft_get_state(stack, len) == SORTED_DES)
@@ -19,6 +24,17 @@ void	ft_sort_three(t_stacks *stacks, int *stack, size_t len)
 		ft_exec_op(stacks, "ra", op_ra);
 	}
 }
+
+/*
+For situations with 3 elements, there is no need to use stack_b, and the
+elements are sorted in ft_sort_three().
+
+For situations with 4 - 5 elements, the two smallest elements are pushed to
+stack_b using move_elem_a in such a way that they are in descending order.
+Then what is left in stack_a is sorted using ft_sort_thre(), and these are in
+the correct spots. What's left to do is to push the elements in stack_b
+back to stack_a, already in the sorted positions.
+*/
 
 void	ft_sort_simple(t_stacks *stacks)
 {
