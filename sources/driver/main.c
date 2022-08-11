@@ -18,16 +18,41 @@ void	ft_print_stacks(t_stacks *stacks)
 void	exit_prog(t_stacks *stacks)
 {
 	ft_stacks_del(stacks);
-	system("leaks push_swap"); //
+	//system("leaks push_swap"); //
 	exit(EXIT_SUCCESS);
+}
+
+/*
+Fast checker to check basic shit. This is assuming that the stacks are
+initialised correctly.
+*/
+
+void	ft_mini_checker(t_stacks *stacks, size_t elem_num)
+{
+	int	flag;
+
+	flag = 0;
+	if (stacks->len_b != 0)
+		flag = printf("KO : len_b != 0\n");
+	if (stacks->len_a != elem_num)
+		flag = printf("KO : len_a != elem_num\n");
+	if (ft_get_state(stacks->stack_a, stacks->len_a) != SORTED_ASC)
+		flag = printf("KO : stack_a not sorted\n");
+	if (flag == 0)
+	{
+		printf("Success!\n");
+		printf("%zu elements have been sorted in %zu moves!\n", stacks->len_a, stacks->moves);
+	}
 }
 
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
+	size_t		elem_num;
 
-	stacks = process_input(argc, argv);
+	stacks = process_input(argc, argv, &elem_num);
 	sort_stacks(stacks);
-	ft_print_stacks(stacks); //
+	// ft_print_stacks(stacks);
+	ft_mini_checker(stacks, elem_num);
 	exit_prog(stacks);
 }
