@@ -30,14 +30,28 @@ initialised correctly.
 void	ft_mini_checker(t_stacks *stacks, size_t elem_num)
 {
 	int	flag;
+	int	i;
 
 	flag = 0;
+	i = 0;
+	// ft_print_stacks(stacks);
 	if (stacks->len_b != 0)
 		flag = printf("KO : len_b != 0\n");
 	if (stacks->len_a != elem_num)
 		flag = printf("KO : len_a != elem_num\n");
 	if (ft_get_state(stacks->stack_a, stacks->len_a) != SORTED_ASC)
+	{
 		flag = printf("KO : stack_a not sorted\n");
+		while (i < (int)stacks->len_a)
+		{
+			if ((i + 1) != stacks->stack_a[i])
+			{
+				printf("Unsorted element is : %d\n", stacks->stack_a[i]);
+				break ;
+			}
+			i++;
+		}
+	}
 	if (flag == 0)
 	{
 		printf("Success!\n");
