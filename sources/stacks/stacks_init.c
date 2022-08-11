@@ -9,6 +9,7 @@ t_stacks	*ft_stacks_new(size_t len)
 	ret->stack_b = ft_calloc(len, sizeof(int));
 	ret->len_a = len;
 	ret->len_b = 0;
+	ret->moves = 0;
 	return (ret);
 }
 

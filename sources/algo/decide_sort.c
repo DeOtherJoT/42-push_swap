@@ -38,6 +38,6 @@ void	sort_stacks(t_stacks *stacks)
 	if (stacks->len_a <= 5)
 		ft_sort_simple(stacks);
 	else
-		printf("Not yet lol\n"); //ft_sort_complex(stacks);
+		ft_sort_complex(stacks);
 	//exit_prog(stacks);
 }

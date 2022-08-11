@@ -14,17 +14,19 @@ typedef struct s_stacks
 	size_t	len_b;
 	int		*stack_a;
 	int		*stack_b;
+	size_t	moves;
 }	t_stacks;
 
 /* -.- Driver Folder -.- */
 
 // Main
-void	exit_prog(t_stacks *stacks);
+void		exit_prog(t_stacks *stacks);
+void		ft_print_stacks(t_stacks *stacks);
 
 /* -.- Input Folder -.- */
 
 // Process Input
-t_stacks	*process_input(int argc, char **argv);
+t_stacks	*process_input(int argc, char **argv, size_t *elem_num);
 t_stacks	*fill_stacks(char **input, size_t len);
 void		index_stack(int *stack, int *sorted_arr, size_t len);
 int			binary_search(int *array, size_t first, size_t last, int val);
@@ -72,6 +74,10 @@ void		ft_sort_complex(t_stacks *stacks);
 // Decide Partition
 size_t		part_count(size_t len);
 int			*decide_partitions(size_t len, size_t *partition_count);
+
+// Push Partition
+void		push_partitions(t_stacks *stacks, int limit);
+void		handle_partitions(t_stacks *stacks, int *limits, size_t part_cnt);
 
 /* -.- Operation Folder -.- */
 
