@@ -1,0 +1,13 @@
+This file contains a list of stuff that are temporary, albeit functions, elements or otherwise.
+These temporary stuff are to be deleted before the final product is created.
+
+Temporary struct elements :-
+size_t	moves;
+
+Temporary Functions :-
+< Main Folder >
+ft_print_stacks();
+ft_mini_checker();
+
+Temporary Parameters :-
+process_input(elem_num);
