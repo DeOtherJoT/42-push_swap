@@ -42,3 +42,29 @@ void	move_elem_a(t_stacks *stacks, int elem)
 		ft_exec_op(stacks, "pb", op_pb); 
 	}
 }
+
+void	move_elem_b(t_stacks *stacks, int elem)
+{
+	size_t	x;
+
+	x = ft_elem_index(stacks->stack_b, elem);
+	if (x <= ((stacks->len_b - 1) - x))
+	{
+		while (x > 0)
+		{
+			ft_exec_op(stacks, "rb", op_rb);
+			x--;
+		}
+		ft_exec_op(stacks, "pa", op_pa);
+	}
+	else
+	{
+		x = stacks->len_b - x;
+		while (x > 0)
+		{
+			ft_exec_op(stacks, "rrb", op_rrb);
+			x--;
+		}
+		ft_exec_op(stacks, "pa", op_pa);
+	}
+}
