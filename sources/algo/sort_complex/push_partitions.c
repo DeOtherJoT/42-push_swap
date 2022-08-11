@@ -6,12 +6,12 @@ void	push_partitions(t_stacks *stacks, int limit)
 
 	while (stacks->stack_a[0] <= limit)
 		ft_exec_op(stacks, "pb", op_pb);
-	while (stacks->stack_a[stacks->len_a] <= limit)
+	while (stacks->stack_a[stacks->len_a - 1] <= limit)
 	{
 		ft_exec_op(stacks, "rra", op_rra);
 		ft_exec_op(stacks, "pb", op_pb);
 	}
-	while (stacks->len_b != limit)
+	while ((int)stacks->len_b != limit)
 	{
 		ctr = -1;
 		while (++ctr < stacks->len_a)

@@ -10,7 +10,7 @@ size_t	part_count(size_t len)
 	int	ret;
 
 	ret = 0;
-	while (len > 2)
+	while (len >= 2)
 	{
 		len /= 2;
 		ret++;
