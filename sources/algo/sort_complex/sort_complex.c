@@ -22,7 +22,13 @@ void	ft_sort_complex(t_stacks *stacks)
 
 	limits = decide_partitions(stacks->len_a, &part_count);
 	handle_partitions(stacks, limits, part_count);
-	//begin_sort(stacks, limits);
+	ft_print_stacks(stacks);
+	//begin_sort(stacks);
 	free(limits);
 }
 
+void	begin_sort(t_stacks *stacks)
+{
+	while (stacks->len_b != 0)
+		move_elem_b(stacks, stacks->len_b);
+}

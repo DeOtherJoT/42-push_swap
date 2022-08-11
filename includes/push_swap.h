@@ -70,6 +70,7 @@ int			ft_get_state(int *stack, size_t len);
 /* Sort Complex */
 
 void		ft_sort_complex(t_stacks *stacks);
+void		begin_sort(t_stacks *stacks);
 
 // Decide Partition
 size_t		part_count(size_t len);
@@ -106,5 +107,6 @@ void		ft_exec_op(t_stacks *stacks, char *op, void (*f)(t_stacks *));
 // Move Elements
 void		move_elem_a(t_stacks *stacks, int elem);
 size_t		ft_elem_index(int *src, int elem);
+void		move_elem_b(t_stacks *stacks, int elem);
 
 #endif
