@@ -11,3 +11,9 @@ ft_mini_checker();
 
 Temporary Parameters :-
 process_input(elem_num);
+
+
+Currently the sorting algorithm does not work for numbers past 200. Need to redo decide_partition to only stop when
+len_a is <= 3.
+Currently takes too many moves for 100 numbers. Time to get hands dirty and actually study up on the recursive side of
+things. Study on Quick Sort, pivot being the median of each partition.
