@@ -31,7 +31,7 @@ void	handle_partitions(t_stacks *stacks, int *limits, size_t part_count)
 		push_partitions(stacks, limits[i]);
 	if (stacks->len_a == 2)
 	{
-		if (ft_get_state(stacks->stack_a, stacks->len_a) == SORTED_DES)
+		if (stacks->stack_a[0] > stacks->stack_a[1])
 			ft_exec_op(stacks, "sa", op_sa);
 	}
 	if (stacks->len_a == 3)
