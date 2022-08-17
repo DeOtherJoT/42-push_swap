@@ -23,7 +23,7 @@ void	ft_sort_complex(t_stacks *stacks)
 	limits = decide_partitions(stacks->len_a, &part_count);
 	handle_partitions(stacks, limits, part_count);
 	ft_print_stacks(stacks);
-	//begin_sort(stacks);
+	begin_sort(stacks);
 	free(limits);
 }
 
