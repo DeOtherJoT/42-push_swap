@@ -34,7 +34,8 @@ void	ft_mini_checker(t_stacks *stacks, size_t elem_num)
 
 	flag = 0;
 	i = 0;
-	// ft_print_stacks(stacks);
+	printf("Moves done : %zu\n", stacks->moves);
+	ft_print_stacks(stacks);
 	if (stacks->len_b != 0)
 		flag = printf("KO : len_b != 0\n");
 	if (stacks->len_a != elem_num)
@@ -66,7 +67,6 @@ int	main(int argc, char **argv)
 
 	stacks = process_input(argc, argv, &elem_num);
 	sort_stacks(stacks);
-	// ft_print_stacks(stacks);
 	ft_mini_checker(stacks, elem_num);
 	exit_prog(stacks);
 }
