@@ -7,7 +7,9 @@ three elements could be sorted.
 
 void	ft_sort_three(t_stacks *stacks, int *stack, size_t len)
 {
-	if (ft_get_state(stack, len) == SORTED_DES)
+	if (ft_get_state(stack, len) == SORTED_ASC)
+		return ;
+	else if (ft_get_state(stack, len) == SORTED_DES)
 	{
 		ft_exec_op(stacks, "sa", op_sa);
 		ft_exec_op(stacks, "rra", op_rra);

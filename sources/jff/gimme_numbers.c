@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 #include <time.h>
 
 int	ft_in_arr(int val, int *arr, int curr)
