@@ -19,8 +19,10 @@ int	*decide_partitions(size_t len, size_t *partition_count)
 	temp_count = part_count(len);
 	ret = malloc(sizeof(int) * temp_count);
 	i = -1;
-	while (++i < temp_count)
-		ret[i] = (int)((i * 20) + 20);
+	while (++i < (len / 20))
+		ret[i] = (i * 20) + 20;
+	if (len % 20 != 0)
+		ret[i] = (i * 20) + (len % 20);
 	*partition_count = temp_count;
 	return (ret);
 }

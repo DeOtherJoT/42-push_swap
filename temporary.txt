@@ -17,3 +17,5 @@ Currently the sorting algorithm does not work for numbers past 200. Need to redo
 len_a is <= 3.
 Currently takes too many moves for 100 numbers. Time to get hands dirty and actually study up on the recursive side of
 things. Study on Quick Sort, pivot being the median of each partition.
+
+Okay, I tried to be lazy and just do more partitions. That didn't work. Time to actually try recursivity? :(
