@@ -1,5 +1,9 @@
 #include "../../includes/push_swap.h"
 
+/*
+Function that returns the current index of an element in the provided stack.
+*/
+
 size_t	ft_elem_index(int *src, int elem)
 {
 	size_t	x;

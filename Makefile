@@ -15,22 +15,22 @@ LIBFT		= libft
 INC			= -Iinclude -I$(LIBFT)
 LIB			= -L$(LIBFT) libft/libft.a
 SRC_DIR		= sources/
-ALG_DIR		= $(SRC_DIR)algo/
+SIM_DIR		= $(SRC_DIR)sort_simple/
 DRV_DIR		= $(SRC_DIR)driver/
 INP_DIR		= $(SRC_DIR)input/
 OPR_DIR		= $(SRC_DIR)operation/
 STK_DIR		= $(SRC_DIR)stacks/
-CPLX_DIR	= $(ALG_DIR)sort_complex/
-JFF_DIR		= $(SRC_DIR)jff/
+CPLX_DIR	= $(SRC_DIR)sort_complex/
+JFF_DIR		= gimme_numbers/
 MAIN		= $(DRV_DIR)main.c
 
 #SOURCE FILES#
 
-SRCS		= $(addprefix $(ALG_DIR), decide_sort.c sort_simple.c sort_utils.c) \
+SRCS		= $(addprefix $(SIM_DIR), sort_stacks.c sort_simple.c sort_utils.c) \
 			  $(addprefix $(INP_DIR), check_input.c input_utils.c process_input.c temp_sort.c) \
 			  $(addprefix $(OPR_DIR), move_elem.c op_ins_1.c op_ins_2.c op_ins_3.c op_utils.c) \
 			  $(addprefix $(STK_DIR), stacks_init.c) \
-			  $(addprefix $(CPLX_DIR), decide_partition2.c push_partitions2.c sort_complex.c)
+			  $(addprefix $(CPLX_DIR), complex_helper.c sort_complex.c)
 JFF_SRCS	= $(addprefix $(JFF_DIR), gimme_numbers.c)
 OBJS		= $(SRCS:.c=.o)
 
