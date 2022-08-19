@@ -54,9 +54,9 @@ void		ft_stacks_del(t_stacks *stacks);
 int			ft_elem_get(int	*stack, int elem);
 void		ft_elem_set(int *stack, int elem, int val);
 
-/* -.- Algo Folder -.- */
+/* -.- Sort Simple -.- */
 
-// Decide Sort
+// Sort Stacks
 void		sort_stacks(t_stacks *stacks);
 void		first_check(t_stacks *stacks, int *stack, size_t len);
 
@@ -67,7 +67,17 @@ void		ft_sort_simple(t_stacks *stacks);
 // Sort Utils
 int			ft_get_state(int *stack, size_t len);
 
-/* Sort Complex */
+/* Sort Complex New */
+
+// Sort Complex
+void		ft_sort_complex(t_stacks *stacks);
+void		push_partition(t_stacks *stacks, int limit);
+int			*get_limits(size_t len, size_t *part_count);
+
+// Complex Helper
+void		decide_push(t_stacks *stacks, int top, int bottom);
+
+/* Sort Complex OLD
 
 void		ft_sort_complex(t_stacks *stacks);
 void		begin_sort(t_stacks *stacks);
@@ -79,6 +89,8 @@ int			*decide_partitions(size_t len, size_t *partition_count);
 // Push Partition
 void		push_partitions(t_stacks *stacks, int limit);
 void		handle_partitions(t_stacks *stacks, int *limits, size_t part_cnt);
+*/
+
 
 /* -.- Operation Folder -.- */
 
