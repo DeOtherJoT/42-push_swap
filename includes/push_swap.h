@@ -17,6 +17,16 @@ typedef struct s_stacks
 	size_t	moves;
 }	t_stacks;
 
+typedef	struct s_pslist
+{
+	size_t			move_a;
+	size_t			move_b;
+	size_t			move_both;
+	size_t			total_moves;
+	struct s_pslist	*next;
+}	t_pslist;
+
+
 /* -.- Driver Folder -.- */
 
 // Main
@@ -76,6 +86,9 @@ int			*get_limits(size_t len, size_t *part_count);
 
 // Complex Helper
 void		decide_push(t_stacks *stacks, int top, int bottom);
+
+// Begin Sort
+void		begin_sort(t_stacks *stacks);
 
 /* Sort Complex OLD
 
