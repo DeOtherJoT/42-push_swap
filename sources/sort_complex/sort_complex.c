@@ -2,7 +2,7 @@
 
 /*
 Initialises an array and populates it with the limits of each partition,
-Each of them being a multiple of 20 until the last element.
+Each of them being a multiple of 50 until the last element.
 */
 
 int		*get_limits(size_t len, size_t *part_count)
@@ -10,16 +10,41 @@ int		*get_limits(size_t len, size_t *part_count)
 	int		*ret;
 	size_t	i;
 
-	*part_count = len / 20;
-	if ((len % 20) != 0)
+	*part_count = len / 50;
+	if ((len % 50) != 0)
 		*part_count += 1;
 	ret = malloc(sizeof(int) * (*part_count));
 	i = -1;
-	while (++i < (len / 20))
-		ret[i] = (i * 20) + 20;
-	if (len % 20 != 0)
-		ret[i] = (i * 20) + (len % 20);
+	while (++i < (len / 50))
+		ret[i] = (i * 50) + 50;
+	if (len % 50 != 0)
+		ret[i] = (i * 50) + (len % 50);
 	return (ret);
+}
+
+void	decide_push(t_stacks *stacks, int top, int bottom)
+{
+	size_t	move_top;
+	size_t	move_bottom;
+
+	if (top == bottom)
+	{
+		move_elem_a(stacks, top);
+		return ;
+	}
+	move_top = ft_elem_index(stacks->stack_a, top);
+	move_bottom = stacks->len_a - ft_elem_index(stacks->stack_a, bottom);
+	if (move_top == move_bottom)
+	{
+		if (top > bottom)
+			move_elem_a(stacks, bottom);
+		else
+			move_elem_a(stacks, top);
+	}
+	else if (move_top > move_bottom)
+		move_elem_a(stacks, bottom);
+	else
+		move_elem_a(stacks, top);
 }
 
 /*
@@ -50,7 +75,7 @@ void	push_partition(t_stacks *stacks, int limit)
 
 /*
 Sorting algorithm for more than 5 elements, divided into partitions that
-take at most 20 elements.
+take at most 50 elements.
 */
 
 void	ft_sort_complex(t_stacks *stacks)
@@ -63,7 +88,6 @@ void	ft_sort_complex(t_stacks *stacks)
 	i = -1;
 	while (++i < part_count)
 		push_partition(stacks, limits[i]);
-	//begin_sort(stacks, limits, part_count);
-	printf("moves : %zu\n", stacks->moves);
+	begin_sort(stacks/*, limits, part_count*/);
 	free(limits);
 }

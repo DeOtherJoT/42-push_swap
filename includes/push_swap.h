@@ -17,14 +17,17 @@ typedef struct s_stacks
 	size_t	moves;
 }	t_stacks;
 
-typedef	struct s_pslist
+typedef	struct s_data
 {
-	size_t			move_a;
-	size_t			move_b;
-	size_t			move_both;
-	size_t			total_moves;
-	struct s_pslist	*next;
-}	t_pslist;
+	int		elem;
+	size_t	do_ra;
+	size_t	do_rra;
+	size_t	do_rb;
+	size_t	do_rrb;
+	size_t	do_rr;
+	size_t	do_rrr;
+	size_t	total_moves;
+}	t_data;
 
 
 /* -.- Driver Folder -.- */
@@ -83,8 +86,6 @@ int			ft_get_state(int *stack, size_t len);
 void		ft_sort_complex(t_stacks *stacks);
 void		push_partition(t_stacks *stacks, int limit);
 int			*get_limits(size_t len, size_t *part_count);
-
-// Complex Helper
 void		decide_push(t_stacks *stacks, int top, int bottom);
 
 // Begin Sort

@@ -2,18 +2,20 @@
 
 void	smart_rotate(t_stacks *stacks)
 {
-	t_pslist	*head;
-	t_pslist	*temp;
-	size_t		i;
+	t_data	**list;
+	size_t	i;
 
+	list = malloc(sizeof(t_data *) * stacks->len_b);
+	if (!list)
+		err_msg("Error at t_data list creation.");
 	i = 0;
-	head = ft_pslistnew(get_move_a(stacks, i), get_move_b(stacks, i));
-	i++;
-	while (i < stacks->len_b)
+	while (i < stacks->len_b);
 	{
-		temp = ft_pslistnew(get_move_a(stacks, i), get_move_b(stacks, i));
+		list[i] = ft_data_new(stacks, i);
 		i++;
 	}
+	complex_move(filter_list(list));
+	ft_free_list(list);
 }
 
 void	begin_sort(t_stacks *stacks)
