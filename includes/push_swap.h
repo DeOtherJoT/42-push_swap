@@ -20,13 +20,13 @@ typedef struct s_stacks
 typedef	struct s_data
 {
 	int		elem;
-	size_t	do_ra;
-	size_t	do_rra;
-	size_t	do_rb;
-	size_t	do_rrb;
-	size_t	do_rr;
-	size_t	do_rrr;
-	size_t	total_moves;
+	int		do_ra;
+	int		do_rra;
+	int		do_rb;
+	int		do_rrb;
+	int		do_rr;
+	int		do_rrr;
+	int		total_moves;
 }	t_data;
 
 
@@ -90,6 +90,21 @@ void		decide_push(t_stacks *stacks, int top, int bottom);
 
 // Begin Sort
 void		begin_sort(t_stacks *stacks);
+void		smart_rotate(t_stacks *stacks);
+
+// Process Data
+int			get_target(int *stack, size_t len, int elem, int flag);
+void		get_moves_a(t_stacks *stacks, t_data *ret);
+void		get_moves_b(t_stacks *stacks, t_data *ret);
+void		process_data(t_data *ret);
+t_data		*ft_data_new(t_stacks *stacks, size_t i);
+
+// Process Helper
+int			ft_most(int a, int b);
+void		process_one(t_data *ret);
+void		process_two(t_data *ret);
+void		process_three(t_data *ret);
+void		process_four(t_data *ret);
 
 /* Sort Complex OLD
 

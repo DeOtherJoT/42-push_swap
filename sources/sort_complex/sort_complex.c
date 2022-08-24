@@ -2,7 +2,7 @@
 
 /*
 Initialises an array and populates it with the limits of each partition,
-Each of them being a multiple of 50 until the last element.
+Each of them being a multiple of 20 until the last element.
 */
 
 int		*get_limits(size_t len, size_t *part_count)
@@ -10,15 +10,15 @@ int		*get_limits(size_t len, size_t *part_count)
 	int		*ret;
 	size_t	i;
 
-	*part_count = len / 50;
-	if ((len % 50) != 0)
+	*part_count = len / 20;
+	if ((len % 20) != 0)
 		*part_count += 1;
 	ret = malloc(sizeof(int) * (*part_count));
 	i = -1;
-	while (++i < (len / 50))
-		ret[i] = (i * 50) + 50;
-	if (len % 50 != 0)
-		ret[i] = (i * 50) + (len % 50);
+	while (++i < (len / 20))
+		ret[i] = (i * 20) + 20;
+	if (len % 20 != 0)
+		ret[i] = (i * 20) + (len % 20);
 	return (ret);
 }
 
@@ -75,7 +75,7 @@ void	push_partition(t_stacks *stacks, int limit)
 
 /*
 Sorting algorithm for more than 5 elements, divided into partitions that
-take at most 50 elements.
+take at most 20 elements.
 */
 
 void	ft_sort_complex(t_stacks *stacks)

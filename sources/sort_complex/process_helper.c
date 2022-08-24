@@ -1,6 +1,6 @@
 #include "../../includes/push_swap.h"
 
-size_t	ft_most(size_t a, size_t b)
+int	ft_most(int a, int b)
 {
 	if (a >= b)
 		return (a);
@@ -19,6 +19,7 @@ void	process_one(t_data *ret)
 void	process_two(t_data *ret)
 {
 	ret->do_rra = 0;
+	ret->do_rrr = 0;
 	ret->total_moves = ft_most(ret->do_rb, ret->do_ra);
 	if (ret->do_rb == ret->total_moves)
 	{
@@ -45,6 +46,7 @@ void	process_three(t_data *ret)
 void	process_four(t_data *ret)
 {
 	ret->do_ra = 0;
+	ret->do_rr = 0;
 	ret->total_moves = ft_most(ret->do_rrb, ret->do_rra);
 	if (ret->do_rrb == ret->total_moves)
 	{
