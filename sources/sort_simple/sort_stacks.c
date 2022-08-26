@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/26 20:35:19 by jthor             #+#    #+#             */
+/*   Updated: 2022/08/26 20:37:13 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 /*
@@ -10,8 +22,8 @@ then they only need to be swapped, and then end the program.
 
 void	first_check(t_stacks *stacks, int *stack, size_t len)
 {
-	if (ft_get_state(stack, len) == SORTED_ASC ||
-		ft_get_state(stack, len) == NO_ACT)
+	if (ft_get_state(stack, len) == SORTED_ASC
+		|| ft_get_state(stack, len) == NO_ACT)
 		exit_prog(stacks);
 	if (len == 2)
 	{
@@ -39,5 +51,4 @@ void	sort_stacks(t_stacks *stacks)
 		ft_sort_simple(stacks);
 	else
 		ft_sort_complex(stacks);
-	//exit_prog(stacks);
 }

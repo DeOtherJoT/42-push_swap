@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_elem.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/26 20:32:55 by jthor             #+#    #+#             */
+/*   Updated: 2022/08/26 20:32:57 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 /*
@@ -43,7 +55,7 @@ void	move_elem_a(t_stacks *stacks, int elem)
 			ft_exec_op(stacks, "rra", op_rra);
 			x--;
 		}
-		ft_exec_op(stacks, "pb", op_pb); 
+		ft_exec_op(stacks, "pb", op_pb);
 	}
 }
 

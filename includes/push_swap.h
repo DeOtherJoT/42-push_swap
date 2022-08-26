@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/26 22:54:39 by jthor             #+#    #+#             */
+/*   Updated: 2022/08/26 22:54:41 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -17,7 +29,7 @@ typedef struct s_stacks
 	size_t	moves;
 }	t_stacks;
 
-typedef	struct s_data
+typedef struct s_data
 {
 	int		elem;
 	int		do_ra;
@@ -28,7 +40,6 @@ typedef	struct s_data
 	int		do_rrr;
 	int		total_moves;
 }	t_data;
-
 
 /* -.- Driver Folder -.- */
 

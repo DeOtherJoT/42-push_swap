@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_complex.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/26 20:34:43 by jthor             #+#    #+#             */
+/*   Updated: 2022/08/26 20:34:45 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 /*
@@ -5,7 +17,7 @@ Initialises an array and populates it with the limits of each partition,
 Each of them being a multiple of 50 until the last element.
 */
 
-int		*get_limits(size_t len, size_t *part_count)
+int	*get_limits(size_t len, size_t *part_count)
 {
 	int		factor;
 	int		*ret;
@@ -55,9 +67,9 @@ void	decide_push(t_stacks *stacks, int top, int bottom)
 }
 
 /*
-Pushes each partition to stack_b in descending order. The last partition will have a
-special condition, where two elements must remain in stack_a for the sorting
-algorithm to actually work.
+Pushes each partition to stack_b in descending order. The last partition will
+have a special condition, where two elements must remain in stack_a for the
+sorting algorithm to actually work.
 */
 
 void	push_partition(t_stacks *stacks, int limit)

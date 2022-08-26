@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stacks_init.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/26 20:35:44 by jthor             #+#    #+#             */
+/*   Updated: 2022/08/26 20:36:07 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 t_stacks	*ft_stacks_new(size_t len)
@@ -22,7 +34,7 @@ void	ft_stacks_del(t_stacks *stacks)
 
 int	ft_elem_get(int	*stack, int elem)
 {
-	return(stack[elem]);
+	return (stack[elem]);
 }
 
 void	ft_elem_set(int *stack, int elem, int val)
