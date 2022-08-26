@@ -1,5 +1,10 @@
 #include "../../includes/push_swap.h"
 
+/*
+Checks whether the parameter elem is either the smallest value or the largest
+value in stack_a.
+*/
+
 int	ft_isborder(int elem, int *stack_a, size_t len_a)
 {
 	size_t	ctr;
@@ -7,7 +12,6 @@ int	ft_isborder(int elem, int *stack_a, size_t len_a)
 	ctr = 0;
 	if (elem < stack_a[0])
 	{
-		// check if elem is the smallest in stack_a
 		while (ctr < len_a)
 		{
 			if (elem > stack_a[ctr])
@@ -17,7 +21,6 @@ int	ft_isborder(int elem, int *stack_a, size_t len_a)
 	}
 	else
 	{
-		// check if elem is the largest in stack_a
 		while (ctr < len_a)
 		{
 			if (elem < stack_a[ctr])
@@ -26,4 +29,19 @@ int	ft_isborder(int elem, int *stack_a, size_t len_a)
 		}
 	}
 	return (1);
+}
+
+/*
+Returns the size of the partitions based off of the total number of elements
+passed in.
+*/
+
+int	ft_getfactor(size_t len)
+{
+	if (len < 20)
+		return (10);
+	if (len < 200)
+		return (20);
+	else
+		return (50);
 }

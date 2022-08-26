@@ -2,25 +2,32 @@
 
 /*
 Initialises an array and populates it with the limits of each partition,
-Each of them being a multiple of 20 until the last element.
+Each of them being a multiple of 50 until the last element.
 */
 
 int		*get_limits(size_t len, size_t *part_count)
 {
+	int		factor;
 	int		*ret;
 	size_t	i;
 
-	*part_count = len / 20;
-	if ((len % 20) != 0)
+	factor = ft_getfactor(len);
+	*part_count = len / factor;
+	if ((len % factor) != 0)
 		*part_count += 1;
 	ret = malloc(sizeof(int) * (*part_count));
 	i = -1;
-	while (++i < (len / 20))
-		ret[i] = (i * 20) + 20;
-	if (len % 20 != 0)
-		ret[i] = (i * 20) + (len % 20);
+	while (++i < (len / factor))
+		ret[i] = (i * factor) + factor;
+	if (len % factor != 0)
+		ret[i] = (i * factor) + (len % factor);
 	return (ret);
 }
+
+/*
+Decides which element, top or bottom, to push based on which one would
+take the least amount of moves.
+*/
 
 void	decide_push(t_stacks *stacks, int top, int bottom)
 {
@@ -74,8 +81,38 @@ void	push_partition(t_stacks *stacks, int limit)
 }
 
 /*
-Sorting algorithm for more than 5 elements, divided into partitions that
-take at most 20 elements.
+Once all elements have been pushed back to stack_a, they are in the correct
+places, but the stack just needs to be rotated to display the intended
+ascending order result.
+*/
+
+void	final_adjust(t_stacks *stacks)
+{
+	size_t	x;
+
+	x = ft_elem_index(stacks->stack_a, 1);
+	if (x <= ((stacks->len_a - 1) - x))
+	{
+		while (x > 0)
+		{
+			ft_exec_op(stacks, "ra", op_ra);
+			x--;
+		}
+	}
+	else
+	{
+		x = stacks->len_a - x;
+		while (x > 0)
+		{
+			ft_exec_op(stacks, "rra", op_rra);
+			x--;
+		}
+	}
+}
+
+/*
+Sorting algorithm for more than 5 elements, divided into partitions of
+equal size, with the probable exception of the last one.
 */
 
 void	ft_sort_complex(t_stacks *stacks)
@@ -88,6 +125,7 @@ void	ft_sort_complex(t_stacks *stacks)
 	i = -1;
 	while (++i < part_count)
 		push_partition(stacks, limits[i]);
-	begin_sort(stacks/*, limits, part_count*/);
+	begin_sort(stacks);
+	final_adjust(stacks);
 	free(limits);
 }
