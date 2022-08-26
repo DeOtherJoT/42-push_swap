@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gimme_numbers.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/26 22:57:37 by jthor             #+#    #+#             */
+/*   Updated: 2022/08/26 22:58:01 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 #include <time.h>
 
@@ -59,7 +71,7 @@ void	print_arr(int *arr, int len)
 	ft_putchar_fd('\n', 1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int	len;
 	int	*arr;
