@@ -1,18 +1,9 @@
 #include "../../includes/push_swap.h"
 
-void	ft_print_data(t_data *node)
-{
-	printf("---------------\n");
-	printf("elem   : %d\n", node->elem);
-	printf("do_ra  : %d\n", node->do_ra);
-	printf("do_rb  : %d\n", node->do_rb);
-	printf("do_rra : %d\n", node->do_rra);
-	printf("do_rrb : %d\n", node->do_rrb);
-	printf("do_rr  : %d\n", node->do_rr);
-	printf("do_rrr : %d\n", node->do_rrr);
-	printf("tmoves : %d\n", node->total_moves);
-	printf("---------------\n");
-}
+/*
+Looks for the element that would be pushed with the least amount of moves.
+If there are multiple, push the first instance.
+*/
 
 t_data	*filter_list(t_data **list, size_t len)
 {
@@ -31,10 +22,14 @@ t_data	*filter_list(t_data **list, size_t len)
 			temp_index = ctr;
 		}
 	}
-	//printf("%zu\n", temp_index);
-	//ft_print_data(list[temp_index]);
 	return (list[temp_index]);
 }
+
+/*
+Executes the instructions that are necessary in order to rotate the
+stacks so that the intended element can be pushed to the correct spot
+in stack_a.
+*/
 
 void	complex_move(t_stacks *stacks, t_data *ins)
 {
@@ -49,12 +44,13 @@ void	complex_move(t_stacks *stacks, t_data *ins)
 	while ((ins->do_rrb)-- > 0)
 		ft_exec_op(stacks, "rrb", op_rrb);
 	while ((ins->do_rrr)-- > 0)
-	{
-		//printf("%d\n", ins->do_rrr);
 		ft_exec_op(stacks, "rrr", op_rrr);
-	}
 	ft_exec_op(stacks, "pa", op_pa);
 }
+
+/*
+Frees the list of t_data nodes.
+*/
 
 void	ft_free_list(t_data **list, size_t len)
 {
@@ -65,6 +61,14 @@ void	ft_free_list(t_data **list, size_t len)
 		free(list[ctr]);
 	free(list);
 }
+
+/*
+With every invocation, a list of t_data nodes are made, each corresponding
+to an element in stack_b, which tells us how many moves have to be executed
+on both stack_a and stack_b so that the particular element is pushed to the
+correct location in stack_a. After the list is created, the element which
+would take the least amount of moves is pushed to stack_a.
+*/
 
 void	smart_rotate(t_stacks *stacks)
 {
@@ -78,20 +82,20 @@ void	smart_rotate(t_stacks *stacks)
 	while (i < stacks->len_b)
 	{
 		list[i] = ft_data_new(stacks, i);
-		ft_print_data(list[i]);
 		i++;
 	}
-	//ft_put_error();
 	complex_move(stacks, filter_list(list, stacks->len_b));
-	ft_print_stacks(stacks);
 	ft_free_list(list, stacks->len_b + 1);
 }
 
+/*
+Driver function for the smart rotate algorithm. Basically executes smart
+rotate until stack_b is empty. Since with every call for smart_rotate, an
+element is pushed to stack_a, there is no worry of infinite loops here.
+*/
+
 void	begin_sort(t_stacks *stacks)
 {
-	// while (stacks->len_b != 0)
-	// 	move_elem_b(stacks, (int)stacks->len_b);
-	//ft_print_stacks(stacks);
 	while (stacks->len_b != 0)
 		smart_rotate(stacks);
 }

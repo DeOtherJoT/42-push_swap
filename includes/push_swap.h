@@ -91,6 +91,10 @@ void		decide_push(t_stacks *stacks, int top, int bottom);
 // Begin Sort
 void		begin_sort(t_stacks *stacks);
 void		smart_rotate(t_stacks *stacks);
+t_data		*filter_list(t_data **list, size_t len);
+void		complex_move(t_stacks *stacks, t_data *ins);
+void		ft_free_list(t_data **list, size_t len);
+void		final_adjust(t_stacks *stacks);
 
 // Process Data
 int			get_target(int *stack, size_t len, int elem, int flag);
@@ -106,20 +110,9 @@ void		process_two(t_data *ret);
 void		process_three(t_data *ret);
 void		process_four(t_data *ret);
 
-/* Sort Complex OLD
-
-void		ft_sort_complex(t_stacks *stacks);
-void		begin_sort(t_stacks *stacks);
-
-// Decide Partition
-size_t		part_count(size_t len);
-int			*decide_partitions(size_t len, size_t *partition_count);
-
-// Push Partition
-void		push_partitions(t_stacks *stacks, int limit);
-void		handle_partitions(t_stacks *stacks, int *limits, size_t part_cnt);
-*/
-
+// Process Utils
+int			ft_isborder(int elem, int *stack_a, size_t len_a);
+int			ft_getfactor(size_t len);
 
 /* -.- Operation Folder -.- */
 

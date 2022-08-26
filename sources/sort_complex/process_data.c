@@ -1,5 +1,11 @@
 #include "../../includes/push_swap.h"
 
+/*
+This function returns the right target in stack_a that is to be moved to the
+top of the stack_a. This makes it so that when the parameter elem is pushed
+to stack_a, it would be in the correct position.
+*/
+
 int	get_target(int *stack, size_t len, int elem, int flag)
 {
 	size_t	ctr;
@@ -7,7 +13,7 @@ int	get_target(int *stack, size_t len, int elem, int flag)
 
 	ctr = 0;
 	ret = stack[0];
-	if (flag == 0) //get the smallest in stack a
+	if (flag == 0)
 	{
 		while (++ctr < len)
 		{
@@ -15,7 +21,7 @@ int	get_target(int *stack, size_t len, int elem, int flag)
 				ret = stack[ctr];
 		}
 	}
-	else // get the target above the elem
+	else
 	{
 		while (++ctr < len)
 		{
@@ -25,6 +31,13 @@ int	get_target(int *stack, size_t len, int elem, int flag)
 	}
 	return (ret);
 }
+
+/*
+Get the amount of moves that it would take to move the correct target to the
+top of stack_a. The end goal here is to shift stack_a so that what is pushed
+from stack_b is in the correct position. The total amount of moves for ra
+and rra are saved to the t_data struct here.
+*/
 
 void	get_moves_a(t_stacks *stacks, t_data *ret)
 {
@@ -39,6 +52,12 @@ void	get_moves_a(t_stacks *stacks, t_data *ret)
 	ret->do_ra = x;
 	ret->do_rra = stacks->len_a - x;
 }
+
+/*
+Get the amount of moves that it would take to move an element in stack_b to
+the top of stack_b. Here only either the total amount of moves of rb or rrb
+is saved to the t_data struct.
+*/
 
 void	get_moves_b(t_stacks *stacks, t_data *ret)
 {
@@ -59,6 +78,13 @@ void	get_moves_b(t_stacks *stacks, t_data *ret)
 	}
 }
 
+/*
+This function takes all the total amount of ra and rra and either rb or rrb
+and cleans them up to a final decision that will acheive the intended result
+in the least amount of moves. In the end, the t_data struct holds the amount
+of times to execute the instructions ra, rra, rb, rrb, rr, or rrr.
+*/
+
 void	process_data(t_data *ret)
 {
 	if (ret->do_rrb == 0)
@@ -77,6 +103,12 @@ void	process_data(t_data *ret)
 	}
 
 }
+
+/*
+Returns a new t_data node, which holds the information of a particular
+element in stack_b about how many moves it would take to move it back to
+stack_a. It is optimised to use rr and rrr when necessary.
+*/
 
 t_data	*ft_data_new(t_stacks *stacks, size_t i)
 {
