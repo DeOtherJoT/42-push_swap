@@ -31,7 +31,7 @@ void	get_moves_a(t_stacks *stacks, t_data *ret)
 	size_t	x;
 	int		target;
 
-	if (ret->elem == (int)(stacks->len_a + stacks->len_b))
+	if (ft_isborder(ret->elem, stacks->stack_a, stacks->len_a) == 1)
 		target = get_target(stacks->stack_a, stacks->len_a, ret->elem, 0);
 	else
 		target = get_target(stacks->stack_a, stacks->len_a, ret->elem, 1);
