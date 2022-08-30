@@ -17,9 +17,10 @@ Decides the input type based on argc and adjusts the input accordingly.
 No checks are done here, only done in fill_stacks() by check_input().
 */
 
-t_stacks	*process_input(int argc, char **argv, size_t *elem_num)
+t_stacks	*process_input(int argc, char **argv)
 {
 	char		**temp_split;
+	size_t		temp_val;
 	t_stacks	*ret;
 
 	if (argc < 2)
@@ -27,13 +28,12 @@ t_stacks	*process_input(int argc, char **argv, size_t *elem_num)
 	else if (argc == 2)
 	{
 		temp_split = ft_split(argv[1], ' ');
-		*elem_num = ft_arr_len(temp_split);
-		ret = fill_stacks(temp_split, *elem_num);
+		temp_val = ft_arr_len(temp_split);
+		ret = fill_stacks(temp_split, temp_val);
 		ft_free_array(temp_split);
 	}
 	else
 	{
-		*elem_num = argc - 1;
 		ret = fill_stacks(argv + 1, argc - 1);
 	}
 	return (ret);

@@ -28,8 +28,8 @@ int	check_input(char *str, int *stack, size_t current)
 	int		conv_str;
 
 	digit_check(str);
+	limit_check(str);
 	conv_str = ft_atoi(str);
-	limit_check(str, conv_str);
 	dup_check(conv_str, stack, current);
 	return (conv_str);
 }
@@ -40,7 +40,7 @@ void	digit_check(char *str)
 	size_t	i;
 
 	str_len = ft_strlen(str);
-	if (str[0] == '-')
+	if (str[0] == '-' || str[0] == '+')
 		i = 1;
 	else
 		i = 0;
@@ -52,14 +52,13 @@ void	digit_check(char *str)
 	}
 }
 
-void	limit_check(char *str, int conv_str)
+void	limit_check(char *str)
 {
-	char	*temp_str;
+	long long	temp_val;
 
-	temp_str = ft_itoa(conv_str);
-	if (ft_strncmp(str, temp_str, ft_strlen(str)) != 0)
+	temp_val = ft_atol(str);
+	if (temp_val < -2147483648 || temp_val > 2147483647)
 		ft_put_error();
-	free(temp_str);
 }
 
 void	dup_check(int conv_str, int *stack, size_t current)

@@ -22,10 +22,8 @@ void	exit_prog(t_stacks *stacks)
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
-	size_t		elem_num;
 
-	stacks = process_input(argc, argv, &elem_num);
+	stacks = process_input(argc, argv);
 	sort_stacks(stacks);
-	ft_mini_checker(stacks, elem_num);
 	exit_prog(stacks);
 }

@@ -50,7 +50,7 @@ void		ft_print_stacks(t_stacks *stacks);
 /* -.- Input Folder -.- */
 
 // Process Input
-t_stacks	*process_input(int argc, char **argv, size_t *elem_num);
+t_stacks	*process_input(int argc, char **argv);
 t_stacks	*fill_stacks(char **input, size_t len);
 void		index_stack(int *stack, int *sorted_arr, size_t len);
 int			binary_search(int *array, size_t first, size_t last, int val);
@@ -58,7 +58,7 @@ int			binary_search(int *array, size_t first, size_t last, int val);
 // Check Input
 int			check_input(char *str, int *stack, size_t current);
 void		digit_check(char *str);
-void		limit_check(char *str, int conv_str);
+void		limit_check(char *str);
 void		dup_check(int conv_str, int *stack, size_t current);
 
 // Temp Sort (Quick Sort Algo)
@@ -69,6 +69,7 @@ void		ft_swap(int *a, int *b);
 // Input Utils
 void		ft_put_error(void);
 size_t		ft_arr_len(char **arr);
+long long	ft_atol(const char *str);
 
 /* -.- Stacks Folder -.- */
 
