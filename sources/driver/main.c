@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 
 	stacks = process_input(argc, argv);
 	sort_stacks(stacks);
+	ft_putchar_fd('\0', STDOUT_FILENO);
 	exit_prog(stacks);
 	return (0);
 }

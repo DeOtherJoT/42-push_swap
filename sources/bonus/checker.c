@@ -69,18 +69,18 @@ int	main(int argc, char **argv)
 	t_stacks	*stacks;
 	void		(*op_arr[11]) (t_stacks *);
 	size_t		elem_num;
-	char		*temp_ins;
+	void		*temp_ins;
 
 	stacks = process_input(argc, argv);
 	init_op_arr(op_arr);
 	elem_num = stacks->len_a;
-	while (1 == 1)
+	temp_ins = get_next_line(STDOUT_FILENO);
+	while (temp_ins)
 	{
-		temp_ins = get_next_line(STDOUT_FILENO);
-		if (temp_ins == NULL)
-			break;
 		exec_inst(stacks, op_arr, temp_ins);
 		free(temp_ins);
+		temp_ins = get_next_line(STDOUT_FILENO);
+		printf("looping\n");
 	}
 	if (stacks->len_a != elem_num || stacks->len_b != 0)
 		exit_bonus(stacks, 1);
