@@ -12,13 +12,6 @@
 
 #include "../../includes/push_swap.h"
 
-void	exit_prog(t_stacks *stacks)
-{
-	ft_stacks_del(stacks);
-	system("leaks push_swap");
-	exit(EXIT_SUCCESS);
-}
-
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
@@ -26,4 +19,5 @@ int	main(int argc, char **argv)
 	stacks = process_input(argc, argv);
 	sort_stacks(stacks);
 	exit_prog(stacks);
+	return (0);
 }

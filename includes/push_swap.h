@@ -45,7 +45,6 @@ typedef struct s_data
 
 // Main
 void		exit_prog(t_stacks *stacks);
-void		ft_print_stacks(t_stacks *stacks);
 
 /* -.- Input Folder -.- */
 
@@ -154,5 +153,13 @@ void		ft_exec_op(t_stacks *stacks, char *op, void (*f)(t_stacks *));
 void		move_elem_a(t_stacks *stacks, int elem);
 size_t		ft_elem_index(int *src, int elem);
 void		move_elem_b(t_stacks *stacks, int elem);
+
+/* -.- GNL Functions -.- */
+char		*get_next_line(int fd);
+ssize_t		read_buff(int fd, char **buff, ssize_t *read_ret);
+void		handle_buff(char **stat_str, char **buff);
+char		*final_line(char **stat_str);
+char		*ft_strldup(char const *s1, int len);
+void		ft_handleptr(char **ptr, int mode);
 
 #endif
