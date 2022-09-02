@@ -27,14 +27,14 @@ int	get_op_index(char *op)
 		return (5);
 	else if (ft_strncmp(op, "rb", 2) == 0)
 		return (6);
-	else if (ft_strncmp(op, "rr", 2) == 0)
-		return (7);
 	else if (ft_strncmp(op, "rra", 3) == 0)
 		return (8);
 	else if (ft_strncmp(op, "rrb", 3) == 0)
 		return (9);
 	else if (ft_strncmp(op, "rrr", 3) == 0)
 		return (10);
+	else if (ft_strncmp(op, "rr", 2) == 0)
+		return (7);
 	else
 		return (-1);
 }
@@ -45,7 +45,7 @@ void	exec_inst(t_stacks *stacks, void (*op_arr[11]) (t_stacks *), char *op)
 
 	index = get_op_index(op);
 	if (index == -1)
-		exit_bonus(stacks, 1);
+		return ;
 	op_arr[index] (stacks);
 }
 
@@ -64,6 +64,7 @@ void	init_op_arr(void (*op_arr[11]) (t_stacks *))
 	op_arr[10] = op_rrr;
 }
 
+
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
@@ -74,13 +75,12 @@ int	main(int argc, char **argv)
 	stacks = process_input(argc, argv);
 	init_op_arr(op_arr);
 	elem_num = stacks->len_a;
-	temp_ins = get_next_line(STDOUT_FILENO);
+	temp_ins = get_next_line(STDIN_FILENO);
 	while (temp_ins)
 	{
 		exec_inst(stacks, op_arr, temp_ins);
 		free(temp_ins);
-		temp_ins = get_next_line(STDOUT_FILENO);
-		printf("looping\n");
+		temp_ins = get_next_line(STDIN_FILENO);
 	}
 	if (stacks->len_a != elem_num || stacks->len_b != 0)
 		exit_bonus(stacks, 1);
