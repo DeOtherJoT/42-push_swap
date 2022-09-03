@@ -6,7 +6,7 @@
 /*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:57:37 by jthor             #+#    #+#             */
-/*   Updated: 2022/08/26 22:58:01 by jthor            ###   ########.fr       */
+/*   Updated: 2022/09/03 17:48:01 by jthor            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	*generate_rand_arr(int len)
 	ctr = 0;
 	while (ctr < len)
 	{
-		temp_gen = get_rand(-2147483648, 0, int_arr, ctr);
+		temp_gen = get_rand(1, 1000, int_arr, ctr);
 		int_arr[ctr] = temp_gen;
 		ctr++;
 	}

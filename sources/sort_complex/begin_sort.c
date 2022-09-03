@@ -13,31 +13,6 @@
 #include "../../includes/push_swap.h"
 
 /*
-Looks for the element that would be pushed with the least amount of moves.
-If there are multiple, push the first instance.
-*/
-
-t_data	*filter_list(t_data **list, size_t len)
-{
-	size_t	ctr;
-	int		temp_total;
-	size_t	temp_index;
-
-	ctr = 0;
-	temp_index = 0;
-	temp_total = list[ctr]->total_moves;
-	while (++ctr < len)
-	{
-		if (temp_total > list[ctr]->total_moves)
-		{
-			temp_total = list[ctr]->total_moves;
-			temp_index = ctr;
-		}
-	}
-	return (list[temp_index]);
-}
-
-/*
 Executes the instructions that are necessary in order to rotate the
 stacks so that the intended element can be pushed to the correct spot
 in stack_a.

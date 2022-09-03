@@ -24,7 +24,6 @@ void	exit_bonus(t_stacks *stacks, int flag)
 	else
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
 	ft_stacks_del(stacks);
-	system("leaks checker");
 	exit(EXIT_SUCCESS);
 }
 

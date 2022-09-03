@@ -29,12 +29,12 @@ BNS_MAIN	= $(SRC_DIR)bonus/checker.c
 
 #SOURCE FILES#
 
-SRCS		= $(addprefix $(SIM_DIR), sort_stacks.c sort_simple.c sort_utils.c) \
+SRCS		= $(addprefix $(SIM_DIR), sort_simple.c) \
 			  $(addprefix $(INP_DIR), check_input.c input_utils.c process_input.c temp_sort.c) \
 			  $(addprefix $(OPR_DIR), move_elem.c op_ins_1.c op_ins_2.c op_ins_3.c op_utils.c) \
 			  $(addprefix $(STK_DIR), stacks_init.c) \
-			  $(addprefix $(DRV_DIR), driver_utils.c) \
-			  $(addprefix $(CPLX_DIR), sort_complex.c begin_sort.c process_data.c process_helper.c process_utils.c) \
+			  $(addprefix $(DRV_DIR), driver_utils.c sort_stacks.c) \
+			  $(addprefix $(CPLX_DIR), sort_complex.c begin_sort.c process_data.c process_helper.c process_utils.c filter_list.c) \
 			  $(addprefix $(GNL_DIR), get_next_line_utils.c get_next_line.c)
 JFF_SRCS	= $(addprefix $(JFF_DIR), gimme_numbers.c)
 OBJS		= $(SRCS:.c=.o)

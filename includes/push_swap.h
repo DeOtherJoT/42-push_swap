@@ -30,20 +30,26 @@ typedef struct s_stacks
 
 typedef struct s_data
 {
-	int		elem;
-	int		do_ra;
-	int		do_rra;
-	int		do_rb;
-	int		do_rrb;
-	int		do_rr;
-	int		do_rrr;
-	int		total_moves;
+	int	flag;
+	int	elem;
+	int	do_ra;
+	int	do_rra;
+	int	do_rb;
+	int	do_rrb;
+	int	do_rr;
+	int	do_rrr;
+	int	total_moves;
 }	t_data;
 
 /* -.- Driver Folder -.- */
 
 // Main
 void		exit_prog(t_stacks *stacks);
+int			ft_get_state(int *stack, size_t len);
+
+// Sort Stacks
+void		sort_stacks(t_stacks *stacks);
+void		first_check(t_stacks *stacks, int *stack, size_t len);
 
 /* -.- Input Folder -.- */
 
@@ -79,32 +85,30 @@ void		ft_elem_set(int *stack, int elem, int val);
 
 /* -.- Sort Simple -.- */
 
-// Sort Stacks
-void		sort_stacks(t_stacks *stacks);
-void		first_check(t_stacks *stacks, int *stack, size_t len);
-
 // Sort Simple
 void		ft_sort_three(t_stacks *stacks, int *stack, size_t len);
 void		ft_sort_simple(t_stacks *stacks);
 
-// Sort Utils
-int			ft_get_state(int *stack, size_t len);
-
-/* Sort Complex New */
+/* Sort Complex */
 
 // Sort Complex
 void		ft_sort_complex(t_stacks *stacks);
 void		push_partition(t_stacks *stacks, int limit);
 int			*get_limits(size_t len, size_t *part_count);
 void		decide_push(t_stacks *stacks, int top, int bottom);
+void		final_adjust(t_stacks *stacks);
 
 // Begin Sort
 void		begin_sort(t_stacks *stacks);
 void		smart_rotate(t_stacks *stacks);
-t_data		*filter_list(t_data **list, size_t len);
 void		complex_move(t_stacks *stacks, t_data *ins);
 void		ft_free_list(t_data **list, size_t len);
-void		final_adjust(t_stacks *stacks);
+
+// Filter List
+t_data		*filter_list(t_data **list, size_t len);
+t_data		*filter_list2(t_data **list, size_t len, size_t flag_ctr);
+t_data		*filter_one(t_data **list, size_t len);
+t_data		*filter_two(t_data **list, size_t len);
 
 // Process Data
 int			get_target(int *stack, size_t len, int elem, int flag);
