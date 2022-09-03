@@ -15,7 +15,7 @@
 /*
 Looks for the element that would be pushed with the least amount of moves.
 If there are multiple, filter again, this time taking into account the
-highest
+highest occurence of rr or rrr.
 */
 
 t_data	*filter_list(t_data **list, size_t len)
