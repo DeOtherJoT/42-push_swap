@@ -12,6 +12,10 @@
 
 #include "../../includes/push_swap.h"
 
+/*
+Returns the highest value between a and b
+*/
+
 int	ft_most(int a, int b)
 {
 	if (a >= b)
@@ -19,6 +23,17 @@ int	ft_most(int a, int b)
 	else
 		return (b);
 }
+
+/*
+Depending on the processes, just cleans up the node to contain the correct
+instructions to execute on stack_a and/or stack_b to arrange them in a
+way that would place the element at the top of stack_b at the correct
+spot in stack_a
+	1 - execute rb and rra.
+	2 - execute rr and either ra or rb.
+	3 - execute ra and rrb.
+	4 - execute rrr and either rra or rrb.
+*/
 
 void	process_one(t_data *ret)
 {

@@ -26,7 +26,6 @@ typedef struct s_stacks
 	size_t	len_b;
 	int		*stack_a;
 	int		*stack_b;
-	size_t	moves;
 }	t_stacks;
 
 typedef struct s_data

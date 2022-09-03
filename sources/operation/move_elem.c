@@ -59,6 +59,10 @@ void	move_elem_a(t_stacks *stacks, int elem)
 	}
 }
 
+/*
+move_elem_a, just for moving from stack_b to stack_a.
+*/
+
 void	move_elem_b(t_stacks *stacks, int elem)
 {
 	size_t	x;

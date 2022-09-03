@@ -45,7 +45,7 @@ elements are sorted in ft_sort_three().
 
 For situations with 4 - 5 elements, the two smallest elements are pushed to
 stack_b using move_elem_a in such a way that they are in descending order.
-Then what is left in stack_a is sorted using ft_sort_thre(), and these are in
+Then what is left in stack_a is sorted using ft_sort_three(), and these are in
 the correct spots. What's left to do is to push the elements in stack_b
 back to stack_a, already in the sorted positions.
 */

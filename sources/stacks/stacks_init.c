@@ -12,6 +12,11 @@
 
 #include "../../includes/push_swap.h"
 
+/*
+Returns a new instance of the t_stacks type, with the variables initialised
+to 0. Both stacks are intialised to the input length.
+*/
+
 t_stacks	*ft_stacks_new(size_t len)
 {
 	t_stacks	*ret;
@@ -21,9 +26,12 @@ t_stacks	*ft_stacks_new(size_t len)
 	ret->stack_b = ft_calloc(len, sizeof(int));
 	ret->len_a = len;
 	ret->len_b = 0;
-	ret->moves = 0;
 	return (ret);
 }
+
+/*
+Deletes the t_stacks instance passed as the parameter.
+*/
 
 void	ft_stacks_del(t_stacks *stacks)
 {
@@ -32,12 +40,21 @@ void	ft_stacks_del(t_stacks *stacks)
 	free(stacks);
 }
 
-int	ft_elem_get(int	*stack, int elem)
+/*
+Returns the element that is referenced by the parameter index
+in the passed stack.
+*/
+
+int	ft_elem_get(int	*stack, int index)
 {
-	return (stack[elem]);
+	return (stack[index]);
 }
 
-void	ft_elem_set(int *stack, int elem, int val)
+/*
+Sets the value of the location in the stack referenced by index.
+*/
+
+void	ft_elem_set(int *stack, int index, int val)
 {
-	stack[elem] = val;
+	stack[index] = val;
 }

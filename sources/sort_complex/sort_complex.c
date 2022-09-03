@@ -14,7 +14,7 @@
 
 /*
 Initialises an array and populates it with the limits of each partition,
-Each of them being a multiple of 50 until the last element.
+Each of them being a multiple of the chosen factor until the last element.
 */
 
 int	*get_limits(size_t len, size_t *part_count)

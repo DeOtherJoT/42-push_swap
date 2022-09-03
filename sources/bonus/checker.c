@@ -1,4 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 14:12:56 by jthor             #+#    #+#             */
+/*   Updated: 2022/09/03 14:13:25 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/checker.h"
+
+/*
+Exit function for bonus implementation, wheere there are 2 possible outcomes
+OK or KO.
+*/
 
 void	exit_bonus(t_stacks *stacks, int flag)
 {
@@ -10,6 +27,12 @@ void	exit_bonus(t_stacks *stacks, int flag)
 	system("leaks checker");
 	exit(EXIT_SUCCESS);
 }
+
+/*
+Returns the index of the correct function to be executed in the array of
+function pointers. Messy if-else implementation, but I'm too lazy to think
+of other methods.
+*/
 
 int	get_op_index(char *op)
 {
@@ -39,6 +62,10 @@ int	get_op_index(char *op)
 		return (-1);
 }
 
+/*
+Executes the received instruction using an arrray of function pointers.
+*/
+
 void	exec_inst(t_stacks *stacks, void (*op_arr[11]) (t_stacks *), char *op)
 {
 	int	index;
@@ -46,8 +73,12 @@ void	exec_inst(t_stacks *stacks, void (*op_arr[11]) (t_stacks *), char *op)
 	index = get_op_index(op);
 	if (index == -1)
 		return ;
-	op_arr[index] (stacks);
+	op_arr[index](stacks);
 }
+
+/*
+Initialises the array of function pointers.
+*/
 
 void	init_op_arr(void (*op_arr[11]) (t_stacks *))
 {
@@ -64,11 +95,20 @@ void	init_op_arr(void (*op_arr[11]) (t_stacks *))
 	op_arr[10] = op_rrr;
 }
 
+/*
+Uses the same input processing as the main push_swap program, and once the
+push_swap program is done, the output is piped to this program. This program
+will then execute each instruction line by line until it reaches the EOF,
+where it will check if
+	1. All elements are in stack_a, and no elements are duplicated.
+	2. The elements are sorted in ascending order.
+Depending on the results, the checker program exits accordingly.
+*/
 
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
-	void		(*op_arr[11]) (t_stacks *);
+	void		(*op_arr[11])(t_stacks *);
 	size_t		elem_num;
 	void		*temp_ins;
 

@@ -16,7 +16,7 @@
 Checks if the input, initialised to stack a is already sorted or has only
 1 element or has no elements. In these cases, no action is necessary and
 end the program.
-As an added function, the order is unsorted but there's only two elements,
+As an added function, if the order is unsorted but there's only two elements,
 then they only need to be swapped, and then end the program.
 */
 
@@ -40,7 +40,7 @@ There are four paths :-
 	B) 3 - 5 elements.
 		- This is handled by ft_sort_simple()
 	C) Everything else.
-		- gg.com
+		- Handled by ft_sort_complex()
 This function decides which sorting algorithm to do based on len_a. 
 */
 

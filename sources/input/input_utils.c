@@ -12,6 +12,10 @@
 
 #include "../../includes/push_swap.h"
 
+/*
+Returns the length of an array of strings.
+*/
+
 size_t	ft_arr_len(char **arr)
 {
 	size_t	ret;
@@ -22,11 +26,19 @@ size_t	ft_arr_len(char **arr)
 	return (ret);
 }
 
+/*
+Writes an error to std_error and exits the program.
+*/
+
 void	ft_put_error(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
+
+/*
+Just a modified version of ft_atoi to return a number of type long long.
+*/
 
 long long	ft_atol(const char *str)
 {
