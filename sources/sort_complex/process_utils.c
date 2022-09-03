@@ -57,3 +57,15 @@ int	ft_getfactor(size_t len)
 	else
 		return (50);
 }
+
+/*
+Returns the highest value between a and b
+*/
+
+int	ft_most(int a, int b)
+{
+	if (a >= b)
+		return (a);
+	else
+		return (b);
+}

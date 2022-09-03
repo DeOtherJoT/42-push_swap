@@ -128,6 +128,7 @@ t_data	*ft_data_new(t_stacks *stacks, size_t i)
 	ret = malloc(sizeof(t_data));
 	if (!ret)
 		err_msg("Error at t_data elem creation.");
+	ret->flag = 0;
 	ret->elem = stacks->stack_b[i];
 	get_moves_a(stacks, ret);
 	get_moves_b(stacks, ret);

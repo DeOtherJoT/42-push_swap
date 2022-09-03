@@ -13,18 +13,6 @@
 #include "../../includes/push_swap.h"
 
 /*
-Returns the highest value between a and b
-*/
-
-int	ft_most(int a, int b)
-{
-	if (a >= b)
-		return (a);
-	else
-		return (b);
-}
-
-/*
 Depending on the processes, just cleans up the node to contain the correct
 instructions to execute on stack_a and/or stack_b to arrange them in a
 way that would place the element at the top of stack_b at the correct
