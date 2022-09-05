@@ -27,7 +27,7 @@ t_stacks	*process_input(int argc, char **argv)
 		exit(EXIT_SUCCESS);
 	else if (argc == 2)
 	{
-		temp_split = ft_split(argv[1], ' ');
+		temp_split = ft_split_alt(argv[1], " \t\n\v\f\r");
 		temp_val = ft_arr_len(temp_split);
 		ret = fill_stacks(temp_split, temp_val);
 		ft_free_array(temp_split);

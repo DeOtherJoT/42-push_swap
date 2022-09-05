@@ -41,7 +41,11 @@ void	digit_check(char *str)
 
 	str_len = ft_strlen(str);
 	if (str[0] == '-' || str[0] == '+')
+	{
+		if (str_len == 1)
+			ft_put_error();
 		i = 1;
+	}
 	else
 		i = 0;
 	while (i < str_len)
