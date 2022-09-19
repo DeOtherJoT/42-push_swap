@@ -34,7 +34,7 @@ t_stacks	*process_input(int argc, char **argv)
 	}
 	else
 	{
-		ret = fill_stacks(argv + 1, argc - 1);
+		ret = parse_extra(argv + 1, argc - 1);
 	}
 	return (ret);
 }

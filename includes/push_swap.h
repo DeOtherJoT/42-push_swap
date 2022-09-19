@@ -70,6 +70,10 @@ void		temp_sort(int *arr, int low, int high);
 size_t		partition(int *arr, int low, int high);
 void		ft_swap(int *a, int *b);
 
+// Parse Input
+t_stacks	*parse_extra(char **argv, int argc);
+char		*combine_strings(char **argv, int argc);
+
 // Input Utils
 void		ft_put_error(void);
 size_t		ft_arr_len(char **arr);
