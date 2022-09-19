@@ -35,27 +35,27 @@ of other methods.
 
 int	get_op_index(char *op)
 {
-	if (ft_strncmp(op, "sa", 2) == 0)
+	if (ft_strncmp(op, "sa\n", 3) == 0)
 		return (0);
-	else if (ft_strncmp(op, "sb", 2) == 0)
+	else if (ft_strncmp(op, "sb\n", 3) == 0)
 		return (1);
-	else if (ft_strncmp(op, "ss", 2) == 0)
+	else if (ft_strncmp(op, "ss\n", 3) == 0)
 		return (2);
-	else if (ft_strncmp(op, "pa", 2) == 0)
+	else if (ft_strncmp(op, "pa\n", 3) == 0)
 		return (3);
-	else if (ft_strncmp(op, "pb", 2) == 0)
+	else if (ft_strncmp(op, "pb\n", 3) == 0)
 		return (4);
-	else if (ft_strncmp(op, "ra", 2) == 0)
+	else if (ft_strncmp(op, "ra\n", 3) == 0)
 		return (5);
-	else if (ft_strncmp(op, "rb", 2) == 0)
+	else if (ft_strncmp(op, "rb\n", 3) == 0)
 		return (6);
-	else if (ft_strncmp(op, "rra", 3) == 0)
+	else if (ft_strncmp(op, "rra\n", 4) == 0)
 		return (8);
-	else if (ft_strncmp(op, "rrb", 3) == 0)
+	else if (ft_strncmp(op, "rrb\n", 4) == 0)
 		return (9);
-	else if (ft_strncmp(op, "rrr", 3) == 0)
+	else if (ft_strncmp(op, "rrr\n", 4) == 0)
 		return (10);
-	else if (ft_strncmp(op, "rr", 2) == 0)
+	else if (ft_strncmp(op, "rr\n", 3) == 0)
 		return (7);
 	else
 		return (-1);
@@ -71,7 +71,7 @@ void	exec_inst(t_stacks *stacks, void (*op_arr[11]) (t_stacks *), char *op)
 
 	index = get_op_index(op);
 	if (index == -1)
-		return ;
+		ft_put_error();
 	op_arr[index](stacks);
 }
 
@@ -114,6 +114,8 @@ int	main(int argc, char **argv)
 	stacks = process_input(argc, argv);
 	init_op_arr(op_arr);
 	elem_num = stacks->len_a;
+	if (elem_num == 0)
+		ft_put_error();
 	temp_ins = get_next_line(STDIN_FILENO);
 	while (temp_ins)
 	{
@@ -123,7 +125,8 @@ int	main(int argc, char **argv)
 	}
 	if (stacks->len_a != elem_num || stacks->len_b != 0)
 		exit_bonus(stacks, 1);
-	if (ft_get_state(stacks->stack_a, stacks->len_a) != SORTED_ASC)
-		exit_bonus(stacks, 1);
-	exit_bonus(stacks, 0);
+	if (ft_get_state(stacks->stack_a, stacks->len_a) == SORTED_ASC
+		|| ft_get_state(stacks->stack_a, stacks->len_a) == NO_ACT)
+		exit_bonus(stacks, 0);
+	exit_bonus(stacks, 1);
 }
