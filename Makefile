@@ -14,7 +14,7 @@ RM			= rm -rf
 
 LIBFT		= libft
 INC			= -Iincludes -I$(LIBFT)
-LIB			= -L$(LIBFT) libft/libft.a
+LIB			= libft/libft.a
 SRC_DIR		= sources/
 SIM_DIR		= $(SRC_DIR)sort_simple/
 DRV_DIR		= $(SRC_DIR)driver/
