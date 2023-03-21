@@ -20,7 +20,7 @@ void	test_process_input_str(void)
 {
 	t_stacks	*stack;
 	//char		*str[] = {"./push_swap", "1", "42", "200", "-2147483648", "-10"};
-	char		*str2[] = {"./push_swap", "1 42 -60 200 -2147483648 -10 0 22x2"};
+	char		*str2[] = {"./push_swap", "+1 42 -60 200 -2147483648 -10 0 22x2"};
 
 	stack = process_input(2, str2);
 	ft_print_stacks(stack);

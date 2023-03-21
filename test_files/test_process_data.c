@@ -28,7 +28,7 @@ int	get_target(int *stack, size_t len, int elem, int flag)
 
 int	main(void)
 {
-	int	stack[] = {5, 6, 3, 4};
+	int	stack[] = {2, 4, 5, 6};
 
-	printf("returned target : %d\n", get_target(stack, 4, 2, 1));
+	printf("returned target : %d\n", get_target(stack, 4, 3, 1));
 }

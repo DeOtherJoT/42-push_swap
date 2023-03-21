@@ -1,4 +1,4 @@
-GCC		= gcc -Wall -Wextra -Werror -I../includes -I../libft ../sources/operation/*.c ../sources/stacks/*.c ../libft/*.c
+GCC		= gcc -Wall -Wextra -Werror -I../includes -I../libft ../sources/input/*.c ../sources/stacks/*.c ../libft/*.c
 FSAN	= -fsanitize=address -g
 
 cincai	:
