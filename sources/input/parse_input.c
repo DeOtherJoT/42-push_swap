@@ -1,4 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/21 13:27:36 by jthor             #+#    #+#             */
+/*   Updated: 2023/03/21 13:27:39 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
+
+/*
+In the case that the input is multiple strings, this function is called to
+handle it, so inputs such as :
+	[i]  ./push_swap 1 3 2 4
+	[ii] ./push_swap 1 3 "2 4"
+
+First, check through all strings and make sure there are no empty strings, "".
+Then, combine all the individual strings in order to handle case [ii].
+Finally, split them again, this time with respect to whitespaces and call
+fill_stacks(), and the program continues from there.
+*/
 
 t_stacks	*parse_extra(char **argv, int argc)
 {
@@ -14,11 +38,16 @@ t_stacks	*parse_extra(char **argv, int argc)
 			ft_put_error();
 	}
 	temp_merge = combine_strings(argv, argc);
-	final_arr = ft_split(temp_merge, ' ');
+	final_arr = ft_split_alt(temp_merge, " \t\n\v\f\r");
 	ret = fill_stacks(final_arr, ft_arr_len(final_arr));
 	ft_free_array(final_arr);
 	return (ret);
 }
+
+/*
+Combines multiple strings to a single string, in the order of input.
+Returns a new string, no updates are applied to the original parameter.
+*/
 
 char	*combine_strings(char **argv, int argc)
 {
