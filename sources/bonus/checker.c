@@ -102,6 +102,9 @@ where it will check if
 	1. All elements are in stack_a, and no elements are duplicated.
 	2. The elements are sorted in ascending order.
 Depending on the results, the checker program exits accordingly.
+
+Any instruction that is not recognised would immediately throw an error
+message and exit the program.
 */
 
 int	main(int argc, char **argv)
