@@ -13,23 +13,31 @@
 #include "../../includes/push_swap.h"
 
 /*
-Decides the input type based on argc and adjusts the input accordingly.
-No checks are done here, only done in fill_stacks() by check_input().
+Inputs can be seperated into three types,
+	[i]   A single string      "1 3 4 2 5"
+
+	[ii]  All seperate strings 1 3 4 2 5
+	
+	[iii] Mixed                1 3 "4 2 5"
+
+This function aims to take inputs of any of these types and make it into [ii].
+From there, it is then passed to the function fill_stacks() for data parsing
+and more thorough checks.
 */
 
 t_stacks	*process_input(int argc, char **argv)
 {
 	char		**temp_split;
-	size_t		temp_val;
 	t_stacks	*ret;
 
 	if (argc < 2)
 		exit(EXIT_SUCCESS);
 	else if (argc == 2)
 	{
+		if (argv[1][0] == '\0')
+			ft_put_error();
 		temp_split = ft_split_alt(argv[1], " \t\n\v\f\r");
-		temp_val = ft_arr_len(temp_split);
-		ret = fill_stacks(temp_split, temp_val);
+		ret = fill_stacks(temp_split, ft_arr_len(temp_split));
 		ft_free_array(temp_split);
 	}
 	else
